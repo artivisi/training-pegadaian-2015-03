@@ -82,4 +82,17 @@ http://software.endy.muhardin.com
 * Jalankan `git init` di dalam folder tersebut
 * Hasilnya : akan terbentuk folder dengan nama `.git`
 
+# Perintah Dasar
+
+* git diff : melihat perubahan dari versi yang terakhir dicommit
+* git add : menambahkan / mendaftarkan perubahan yang akan dicommit
+* git commit : menyimpan perubahan ke database
+
+# Beberapa Istilah
+
+* Repository : database yang berisi daftar perubahan
+* Staging Area : perubahan yang *akan* di-commit
+* Working Area : perubahan yang kita lakukan dan belum dimasukkan ke staging
+
+
 
