@@ -47,10 +47,10 @@ http://software.endy.muhardin.com
 
 # Macam-macam layanan version control (project hosting)
 
-* Sourceforge
-* Google Code
-* Github
-* Bitbucket
+* [Sourceforge](http://sourceforge.net/)
+* [Google Code](https://code.google.com)
+* [Github](https://github.com)
+* [Bitbucket](https://bitbucket.org)
 
 # Git
 
