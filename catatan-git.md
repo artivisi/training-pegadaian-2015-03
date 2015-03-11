@@ -111,5 +111,5 @@ http://software.endy.muhardin.com
 * Staging Area : perubahan yang *akan* di-commit
 * Working Area : perubahan yang kita lakukan dan belum dimasukkan ke staging
 
-
+# Belajar Workflow di Git ( masipunk.anam@gmail.com)
 
