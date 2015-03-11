@@ -119,7 +119,7 @@ http://software.endy.muhardin.com
 * Copy repo ke local (pertama kali saja) : `git clone <url>`
 * Download perubahan terbaru dari remote : `git pull`
 
-# Workflow
+# Belajar Workflow di Git
 
 * Shared Repository : semua orang push ke repo yang sama
 * Integration Manager : hanya IM yang push ke repo utama
@@ -131,5 +131,4 @@ http://software.endy.muhardin.com
 * Setup remote `upstream` yang mengarah ke repo induk
 * Lakukan perubahan
 * Push ke hasil fork
-
 
