@@ -84,7 +84,8 @@ http://software.endy.muhardin.com
 
 # Perintah Dasar
 
-* git diff : melihat perubahan dari versi yang terakhir dicommit
+* git diff : melihat perubahan dari versi yang terakhir dicommit (yang berada di working area)
+* git diff --staged : melihat perubahan yang ada di staging area
 * git add : menambahkan / mendaftarkan perubahan yang akan dicommit
 * git commit : menyimpan perubahan ke database
 
