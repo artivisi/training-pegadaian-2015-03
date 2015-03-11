@@ -76,6 +76,22 @@ http://software.endy.muhardin.com
 * HTTP
 * SSH
 
+# Setup Git di Windows
+
+* Download dan Install
+* Generate public dan private key
+
+    * Buka command prompt Git Bash (klik kanan Windows Explorer > Git Bash)
+    * Jalankan perintah `ssh-keygen`
+    * Periksa folder `C:\Users\NamaUser\.ssh`, cari file `id_rsa` (private key) dan `id_rsa.pub` (public key)
+
+# Mendaftarkan SSH Public Key di Github
+
+* Login ke Github
+* Masuk ke halaman Settings
+* Klik tab SSH Keys
+* Copy-paste isi public key yang sudah dibuat di langkah sebelumnya (`id_rsa.pub`)
+
 # Membuat Repository Git
 
 * Buat folder kosong
