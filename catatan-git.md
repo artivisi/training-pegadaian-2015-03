@@ -122,7 +122,10 @@ Peserta Traning
 * Mendaftarkan remote repo : `git remote add <nama remote> <url>`
 * Upload ke remote : `git push <nama remote> <nama branch>`
 * Copy repo ke local (pertama kali saja) : `git clone <url>`
-* Download perubahan terbaru dari remote : `git pull`
+* Download perubahan terbaru dari remote
+
+    * `git pull`
+    * `git fetch <nama remote>` dilanjutkan dengan `git merge <remote/branch> master`
 
 # Belajar Workflow di Git
 
