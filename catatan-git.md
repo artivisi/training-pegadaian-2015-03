@@ -132,3 +132,4 @@ http://software.endy.muhardin.com
 * Lakukan perubahan
 * Push ke hasil fork
 
+# Tambahan dari Kadek
