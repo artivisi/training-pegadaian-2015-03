@@ -76,3 +76,10 @@ http://software.endy.muhardin.com
 * HTTP
 * SSH
 
+# Membuat Repository Git
+
+* Buat folder kosong
+* Jalankan `git init` di dalam folder tersebut
+* Hasilnya : akan terbentuk folder dengan nama `.git`
+
+
