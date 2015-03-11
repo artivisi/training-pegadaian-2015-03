@@ -40,10 +40,10 @@ http://software.endy.muhardin.com
 
 * Distributed
 
-    * Git
-    * Mercurial
-    * Bazaar
-    * Bitkeeper (proprietary)
+    * [Git](http://git-scm.com/)
+    * [Mercurial](http://mercurial.selenic.com/)
+    * [Bazaar](http://bazaar.canonical.com/en/)
+    * [Bitkeeper (proprietary)](http://www.bitkeeper.com/)
 
 # Macam-macam layanan version control (project hosting)
 
