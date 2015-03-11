@@ -2,6 +2,11 @@ Endy Muhardin
 endy.muhardin@gmail.com
 http://software.endy.muhardin.com
 
+Peserta Traning
+1. Teguh Budi I
+2. M Syaiful Anam
+3. dst
+
 # Version Control #
 
 * Menyimpan file dan folder
