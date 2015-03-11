@@ -137,3 +137,31 @@ Peserta Traning
 * Lakukan perubahan
 * Push ke hasil fork
 
+# Workflow Integration Manager : Integrator 1
+
+* Add remote yang mengarah ke repo contributor
+* Fetch dari repo contributor
+* Merge commit contributor ke branch temporary
+* Review, test, fix hasil merge (bila perlu)
+* Kalau sudah ok, merge branch temporary ke master
+
+# Workflow Integration Manager : Integrator 2
+
+* Buat branch temporary untuk integrasi
+* Pull langsung dari repo contributor ke branch temporary
+
+    ```
+    git branch buat-integrasi
+    git checkout buat-integrasi
+    git pull <url> <nama-branch>
+    ```
+
+* Review, test, fix hasil merge
+* Kalau sudah ok, merge branch temporary ke master
+
+    ```
+    git checkout master
+    git merge buat-integrasi
+    ```
+
+
