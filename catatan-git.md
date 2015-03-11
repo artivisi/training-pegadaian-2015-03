@@ -110,6 +110,26 @@ http://software.endy.muhardin.com
 * Repository : database yang berisi daftar perubahan
 * Staging Area : perubahan yang *akan* di-commit
 * Working Area : perubahan yang kita lakukan dan belum dimasukkan ke staging
+* Remote : repository di komputer lain (misalnya dalam server di internet)
 
+# Remote Repository
+
+* Mendaftarkan remote repo : `git remote add <nama remote> <url>`
+* Upload ke remote : `git push <nama remote> <nama branch>`
+* Copy repo ke local (pertama kali saja) : `git clone <url>`
+* Download perubahan terbaru dari remote : `git pull`
+
+# Workflow
+
+* Shared Repository : semua orang push ke repo yang sama
+* Integration Manager : hanya IM yang push ke repo utama
+
+# Workflow Integration Manager : Contributor
+
+* Fork Repo Induk
+* Clone dari hasil fork
+* Setup remote `upstream` yang mengarah ke repo induk
+* Lakukan perubahan
+* Push ke hasil fork
 
 
