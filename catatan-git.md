@@ -117,12 +117,50 @@ Peserta Traning
 * Working Area : perubahan yang kita lakukan dan belum dimasukkan ke staging
 * Remote : repository di komputer lain (misalnya dalam server di internet)
 
+# Contoh Undo dengan Reset
+
+* Sudah commit, mau commit ulang (misalnya ganti commit message) tanpa mengubah changeset
+
+    `git reset --soft HEAD~1`
+
+* Sudah commit, mau commit ulang dengan changeset yang berbeda
+
+    `git reset --mixed HEAD~1` atau `git reset HEAD~1`
+
+* Sudah commit, mau kembalikan ke kondisi commit sebelumnya
+
+    `git reset --hard HEAD~1`
+
+# Case 1 : Reset Soft
+
+* Edit 2 file : X dan Y
+* Add file X
+* Commit dengan message `coba`
+* Commit ulang dengan message `test`
+
+# Case 2 : Reset Mixed
+
+* Edit file : X dan Y
+* Add file X
+* Commit
+* Commit ulang tapi yang tersimpan adalah file Y
+
+# Case 3 : Reset Hard
+
+* Edit file : X dan Y
+* Add file X
+* Commit
+* Kembalikan file X dan Y seperti sebelum edit dan commit
+
 # Remote Repository
 
 * Mendaftarkan remote repo : `git remote add <nama remote> <url>`
 * Upload ke remote : `git push <nama remote> <nama branch>`
 * Copy repo ke local (pertama kali saja) : `git clone <url>`
-* Download perubahan terbaru dari remote : `git pull`
+* Download perubahan terbaru dari remote
+
+    * `git pull`
+    * `git fetch <nama remote>` dilanjutkan dengan `git merge <remote/branch> master`
 
 # Belajar Workflow di Git
 
@@ -137,4 +175,35 @@ Peserta Traning
 * Lakukan perubahan
 * Push ke hasil fork
 
+<<<<<<< HEAD
 # Tambahan dari Kadek
+=======
+# Workflow Integration Manager : Integrator 1
+
+* Add remote yang mengarah ke repo contributor
+* Fetch dari repo contributor
+* Merge commit contributor ke branch temporary
+* Review, test, fix hasil merge (bila perlu)
+* Kalau sudah ok, merge branch temporary ke master
+
+# Workflow Integration Manager : Integrator 2
+
+* Buat branch temporary untuk integrasi
+* Pull langsung dari repo contributor ke branch temporary
+
+    ```
+    git branch buat-integrasi
+    git checkout buat-integrasi
+    git pull <url> <nama-branch>
+    ```
+
+* Review, test, fix hasil merge
+* Kalau sudah ok, merge branch temporary ke master
+
+    ```
+    git checkout master
+    git merge buat-integrasi
+    ```
+
+
+>>>>>>> upstream/master
