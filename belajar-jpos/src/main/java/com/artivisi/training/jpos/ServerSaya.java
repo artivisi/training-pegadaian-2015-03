@@ -25,7 +25,7 @@ public class ServerSaya {
                         ISOMsg response = (ISOMsg) request.clone();
                         response.setMTI("0810");
                         response.set(39, "00");
-                        response.set(7, "1234567890");
+                        //response.set(7, "1234567890");
                         pengirim.send(response);
                         System.out.println("Mengirim response : ");
                         response.setPackager(new ISO87APackager());
