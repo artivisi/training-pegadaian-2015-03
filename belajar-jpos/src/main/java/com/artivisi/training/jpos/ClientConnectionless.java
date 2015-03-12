@@ -7,7 +7,7 @@ import org.jpos.iso.ISOMsg;
 import org.jpos.iso.channel.ASCIIChannel;
 import org.jpos.iso.packager.ISO87APackager;
 
-public class App {
+public class ClientConnectionless {
     public static void main( String[] args ) throws Exception {
         SimpleDateFormat formatterBit7 = new SimpleDateFormat("MMddHHmmss");
         
