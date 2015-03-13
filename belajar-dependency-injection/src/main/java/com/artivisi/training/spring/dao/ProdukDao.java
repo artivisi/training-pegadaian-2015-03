@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ProdukDao {
     
@@ -22,7 +23,7 @@ public class ProdukDao {
     }*/
 
     // setter injection
-    @Autowired
+    @Autowired @Qualifier("ds1")
     public void setDataSource(DataSource ds) {
         this.dataSource = ds;
     }
