@@ -3,9 +3,6 @@ package com.artivisi.training.spring;
 import com.artivisi.training.spring.dao.ProdukDao;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
@@ -46,7 +43,8 @@ public class ManualDI {
         System.out.println("Nama Produk "+p.getNama());
         System.out.println("Harga Produk "+p.getHarga());
         
-        ProdukDao pd = new ProdukDao(connectKeDb());
+        ProdukDao pd = new ProdukDao();
+        pd.setDataSource(connectKeDb());
         pd.simpan(p);
     }
 }

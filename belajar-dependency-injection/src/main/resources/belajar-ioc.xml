@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    
+    <bean id="p" class="com.artivisi.training.spring.Produk">
+        <property name="kode" value="S-002"/>
+        <property name="nama" value="Produk S-002"/>
+        <property name="harga" value="397000"/>
+    </bean>
+    
+    <bean id="ds" class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">
+        <property name="url" value="jdbc:mysql://localhost/belajar"/>
+        <property name="user" value="root"/>
+        <property name="password" value="admin"/>
+    </bean>
+    
+    <bean id="pd" class="com.artivisi.training.spring.dao.ProdukDao">
+        <!-- <constructor-arg ref="ds"/> -->
+        <property name="dataSource" ref="ds"/>
+    </bean>
+    
+</beans>

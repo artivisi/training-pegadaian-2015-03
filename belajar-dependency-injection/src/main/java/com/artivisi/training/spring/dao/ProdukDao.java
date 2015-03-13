@@ -16,17 +16,17 @@ public class ProdukDao {
     private DataSource dataSource;
 
     // constructor injection
-    public ProdukDao(DataSource ds) {
+    /*public ProdukDao(DataSource ds) {
         this.dataSource = ds;
-    }
+    }*/
 
     // setter injection
-    public void setKoneksi(DataSource ds) {
+    public void setDataSource(DataSource ds) {
         this.dataSource = ds;
     }
     
     public void simpan(Produk p){
-            Connection c = null;
+        Connection c = null;
         try {
             c = dataSource.getConnection();
             c.setAutoCommit(false);
