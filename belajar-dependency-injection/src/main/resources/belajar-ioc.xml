@@ -6,11 +6,11 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     
-    <context:annotation-config />
+    <context:component-scan base-package="com.artivisi.training.spring.dao" />
     
     <bean id="p" class="com.artivisi.training.spring.Produk">
-        <property name="kode" value="S-004"/>
-        <property name="nama" value="Produk S-003"/>
+        <property name="kode" value="S-005"/>
+        <property name="nama" value="Produk S-005"/>
         <property name="harga" value="697000"/>
     </bean>
     
@@ -26,10 +26,10 @@
         <property name="password" value="admin"/>
     </bean>
 
-            
+    <!--        
     <bean id="pd" class="com.artivisi.training.spring.dao.ProdukDao">
+    -->
         <!-- <constructor-arg ref="ds"/> -->
         <!-- <property name="dataSource" ref="ds"/> -->
-    </bean>
-    
+    <!-- </bean> -->
 </beans>

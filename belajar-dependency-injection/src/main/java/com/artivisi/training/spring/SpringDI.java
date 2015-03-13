@@ -18,7 +18,7 @@ public class SpringDI {
         System.out.println("Nama Produk "+p.getNama());
         System.out.println("Harga Produk "+p.getHarga());
         
-        ProdukDao pd = (ProdukDao) springContainer.getBean("pd");
+        ProdukDao pd = (ProdukDao) springContainer.getBean("produkDao");
         pd.simpan(p);
     }
 }
