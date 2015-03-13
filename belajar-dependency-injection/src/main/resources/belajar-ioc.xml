@@ -6,10 +6,12 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     
+    <context:annotation-config />
+    
     <bean id="p" class="com.artivisi.training.spring.Produk">
-        <property name="kode" value="S-002"/>
-        <property name="nama" value="Produk S-002"/>
-        <property name="harga" value="397000"/>
+        <property name="kode" value="S-003"/>
+        <property name="nama" value="Produk S-003"/>
+        <property name="harga" value="697000"/>
     </bean>
     
     <bean id="ds" class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">
@@ -20,7 +22,7 @@
     
     <bean id="pd" class="com.artivisi.training.spring.dao.ProdukDao">
         <!-- <constructor-arg ref="ds"/> -->
-        <property name="dataSource" ref="ds"/>
+        <!-- <property name="dataSource" ref="ds"/> -->
     </bean>
     
 </beans>
