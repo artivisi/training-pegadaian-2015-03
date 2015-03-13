@@ -8,36 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sql.DataSource;
 
 public class ProdukDao {
     
     private static final String SQL_SIMPAN = "insert into produk (kode, nama, harga) values (?,?,?)";
-    private Connection koneksi;
+    private DataSource dataSource;
 
     // constructor injection
-    public ProdukDao(Connection koneksi) {
-        this.koneksi = koneksi;
+    public ProdukDao(DataSource ds) {
+        this.dataSource = ds;
     }
 
     // setter injection
-    public void setKoneksi(Connection koneksi) {
-        this.koneksi = koneksi;
+    public void setKoneksi(DataSource ds) {
+        this.dataSource = ds;
     }
     
     public void simpan(Produk p){
+            Connection c = null;
         try {
-            koneksi.setAutoCommit(false);
+            c = dataSource.getConnection();
+            c.setAutoCommit(false);
             
-            PreparedStatement ps = koneksi.prepareStatement(SQL_SIMPAN);
+            PreparedStatement ps = c.prepareStatement(SQL_SIMPAN);
             ps.setString(1, p.getKode());
             ps.setString(2, p.getNama());
             ps.setBigDecimal(3, p.getHarga());
             ps.executeUpdate();
-            koneksi.commit();
+            c.commit();
             
         } catch (SQLException ex) {
             try {
-                koneksi.rollback();
+                c.rollback();
             } catch (SQLException ex1) {
                 Logger.getLogger(ProdukDao.class.getName()).log(Level.SEVERE, null, ex1);
             }
