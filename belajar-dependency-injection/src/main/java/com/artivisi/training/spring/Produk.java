@@ -1,11 +1,23 @@
 package com.artivisi.training.spring;
 
 import java.math.BigDecimal;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity @Table(name = "produk")
 public class Produk {
+    
+    @Id @GeneratedValue
     private Integer id;
+    
+    @Column(nullable = false, unique = true)
     private String kode;
+    @Column(nullable = false)
     private String nama;
+    @Column(nullable = false)
     private BigDecimal harga;
 
     public Integer getId() {
