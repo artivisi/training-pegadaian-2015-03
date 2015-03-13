@@ -9,8 +9,8 @@
     <context:component-scan base-package="com.artivisi.training.spring.dao" />
     
     <bean id="p" class="com.artivisi.training.spring.Produk">
-        <property name="kode" value="S-005"/>
-        <property name="nama" value="Produk S-005"/>
+        <property name="kode" value="S-006"/>
+        <property name="nama" value="Produk S-006"/>
         <property name="harga" value="697000"/>
     </bean>
     
