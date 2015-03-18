@@ -19,10 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @WebIntegrationTest
 public class PaymentControllerTest {
     
-    
     @Value("${local.server.port}")
     private Integer port;
-    
     
     @Before
     public void persiapan(){
