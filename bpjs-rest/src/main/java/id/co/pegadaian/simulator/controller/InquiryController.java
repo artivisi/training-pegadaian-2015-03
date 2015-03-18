@@ -24,7 +24,7 @@ public class InquiryController {
     }
     
     @RequestMapping(value="/kesehatan/{nomer}")
-    public List<Tagihan> inquriry(@PathVariable String nomer){
+    public List<Tagihan> inquiry(@PathVariable String nomer){
         return bpjsService.cariTagihan(nomer);
     }
 }
