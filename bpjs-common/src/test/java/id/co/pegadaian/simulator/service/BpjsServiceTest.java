@@ -1,6 +1,6 @@
 package id.co.pegadaian.simulator.service;
 
-import id.co.pegadaian.simulator.App;
+import id.co.pegadaian.simulator.TestConfig;
 import id.co.pegadaian.simulator.entity.Pembayaran;
 import id.co.pegadaian.simulator.entity.Peserta;
 import id.co.pegadaian.simulator.entity.Tagihan;
@@ -15,7 +15,7 @@ import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = App.class)
+@SpringApplicationConfiguration(classes = TestConfig.class)
 @SqlGroup(
     {
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:data-awal.sql"),
