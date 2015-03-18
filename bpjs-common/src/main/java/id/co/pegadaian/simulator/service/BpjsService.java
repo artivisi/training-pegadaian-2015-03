@@ -35,18 +35,27 @@ public class BpjsService {
     }
     
     public Pembayaran bayar(Tagihan t){
-        t.setLunas(Boolean.TRUE);
-        Pembayaran p = new Pembayaran();
-        p.setTagihan(t);
-        p.setUserLoket("usertest");
-        p.setKodeLoket("lokettest");
-        
-        tagihanDao.save(t);
-        pembayaranDao.save(p);
-        return p;
+        return bayar(t, "lokettest", "usertest");
     }
 
     Pembayaran cariPembayaran(Tagihan t) {
         return pembayaranDao.findByTagihanId(t.getId());
+    }
+
+    public Tagihan cariTagihanById(String idTagihan) {
+        return tagihanDao.findOne(idTagihan);
+    }
+
+    public Pembayaran bayar(Tagihan t, String kodeLoket, String userLoket) {
+        t.setLunas(Boolean.TRUE);
+        Pembayaran p = new Pembayaran();
+        p.setTagihan(t);
+        p.setUserLoket(userLoket);
+        p.setKodeLoket(kodeLoket);
+        
+        tagihanDao.save(t);
+        pembayaranDao.save(p);
+        return p;
+
     }
 }

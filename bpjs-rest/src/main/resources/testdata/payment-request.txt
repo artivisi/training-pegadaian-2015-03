@@ -1,0 +1,5 @@
+{
+    "userLoket" : "bpjsresttestuser",
+    "kodeLoket" : "bpjsresttestloket",
+    "idTagihan" : "t001"
+}

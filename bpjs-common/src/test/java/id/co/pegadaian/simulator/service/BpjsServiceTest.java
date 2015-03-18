@@ -43,6 +43,12 @@ public class BpjsServiceTest {
     }
     
     @Test
+    public void testCariTagihanById(){
+        Assert.assertNotNull(service.cariTagihanById("t001"));
+        Assert.assertNull(service.cariTagihanById("x001"));
+    }
+    
+    @Test
     public void testCariTagihanByNomerPeserta(){
         List<Tagihan> data = service.cariTagihan("1234567890");
         Assert.assertTrue("Jumlah data harusnya 1", data.size() == 1);
