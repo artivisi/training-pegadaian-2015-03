@@ -53,10 +53,9 @@ public class BpjsServiceTest {
         Tagihan t = service.cariTagihan("1234567890").get(0);
         Assert.assertFalse("Tagihan belum lunas", t.getLunas());
         
-        service.bayar(t);
+        Pembayaran p = service.bayar(t);
         
         Assert.assertTrue("Setelah dibayar, harusnya lunas", t.getLunas());
-        Pembayaran p = service.cariPembayaran(t);
         Assert.assertNotNull(p);
         
         System.out.println("Tagihan Lunas : "+t.getLunas());

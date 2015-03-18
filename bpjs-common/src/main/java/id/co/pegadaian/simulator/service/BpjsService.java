@@ -34,7 +34,7 @@ public class BpjsService {
         return pesertaDao.count();
     }
     
-    public void bayar(Tagihan t){
+    public Pembayaran bayar(Tagihan t){
         t.setLunas(Boolean.TRUE);
         Pembayaran p = new Pembayaran();
         p.setTagihan(t);
@@ -43,6 +43,7 @@ public class BpjsService {
         
         tagihanDao.save(t);
         pembayaranDao.save(p);
+        return p;
     }
 
     Pembayaran cariPembayaran(Tagihan t) {
