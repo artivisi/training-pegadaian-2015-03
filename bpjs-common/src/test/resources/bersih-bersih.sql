@@ -1,0 +1,1 @@
+delete from peserta where nomer='9876543210';

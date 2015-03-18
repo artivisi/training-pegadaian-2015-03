@@ -26,4 +26,9 @@ public class BpjsService {
     public void simpan(Peserta p) {
         entityManager.persist(p);
     }
+
+    public Long hitungJumlahPeserta() {
+        return (Long) entityManager.createQuery("select count(*) from Peserta p")
+                .getSingleResult();
+    }
 }
