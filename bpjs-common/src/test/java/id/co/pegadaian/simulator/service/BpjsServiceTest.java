@@ -1,6 +1,7 @@
 package id.co.pegadaian.simulator.service;
 
 import id.co.pegadaian.simulator.App;
+import id.co.pegadaian.simulator.entity.Pembayaran;
 import id.co.pegadaian.simulator.entity.Peserta;
 import id.co.pegadaian.simulator.entity.Tagihan;
 import java.util.List;
@@ -45,5 +46,23 @@ public class BpjsServiceTest {
     public void testCariTagihanByNomerPeserta(){
         List<Tagihan> data = service.cariTagihan("1234567890");
         Assert.assertTrue("Jumlah data harusnya 1", data.size() == 1);
+    }
+    
+    @Test
+    public void testSimpanPembayaran(){
+        Tagihan t = service.cariTagihan("1234567890").get(0);
+        Assert.assertFalse("Tagihan belum lunas", t.getLunas());
+        
+        service.bayar(t);
+        
+        Assert.assertTrue("Setelah dibayar, harusnya lunas", t.getLunas());
+        Pembayaran p = service.cariPembayaran(t);
+        Assert.assertNotNull(p);
+        
+        System.out.println("Tagihan Lunas : "+t.getLunas());
+        System.out.println("ID Bayar : "+p.getId());
+        System.out.println("User : "+p.getUserLoket());
+        System.out.println("Loket : "+p.getKodeLoket());
+        System.out.println("Waktu Bayar : "+p.getWaktuTransaksi());
     }
 }

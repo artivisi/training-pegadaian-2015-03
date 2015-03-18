@@ -32,6 +32,8 @@ public class Tagihan {
     private Date tanggalJatuhTempo;
     @Column(nullable = false)
     private BigDecimal nilai;
+    @Column(nullable = false)
+    private Boolean lunas = Boolean.FALSE;
 
     public String getId() {
         return id;
@@ -72,6 +74,13 @@ public class Tagihan {
     public void setNilai(BigDecimal nilai) {
         this.nilai = nilai;
     }
-    
+
+    public Boolean getLunas() {
+        return lunas;
+    }
+
+    public void setLunas(Boolean lunas) {
+        this.lunas = lunas;
+    }
     
 }

@@ -1,7 +1,9 @@
 package id.co.pegadaian.simulator.service;
 
+import id.co.pegadaian.simulator.dao.PembayaranDao;
 import id.co.pegadaian.simulator.dao.PesertaDao;
 import id.co.pegadaian.simulator.dao.TagihanDao;
+import id.co.pegadaian.simulator.entity.Pembayaran;
 import id.co.pegadaian.simulator.entity.Peserta;
 import id.co.pegadaian.simulator.entity.Tagihan;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class BpjsService {
     
     @Autowired private PesertaDao pesertaDao;
     @Autowired private TagihanDao tagihanDao;
+    @Autowired private PembayaranDao pembayaranDao;
     
     public List<Tagihan> cariTagihan(String nomerPelanggan){
         if(nomerPelanggan == null || nomerPelanggan.isEmpty()){
@@ -29,5 +32,20 @@ public class BpjsService {
 
     public Long hitungJumlahPeserta() {
         return pesertaDao.count();
+    }
+    
+    public void bayar(Tagihan t){
+        t.setLunas(Boolean.TRUE);
+        Pembayaran p = new Pembayaran();
+        p.setTagihan(t);
+        p.setUserLoket("usertest");
+        p.setKodeLoket("lokettest");
+        
+        tagihanDao.save(t);
+        pembayaranDao.save(p);
+    }
+
+    Pembayaran cariPembayaran(Tagihan t) {
+        return pembayaranDao.findByTagihanId(t.getId());
     }
 }
