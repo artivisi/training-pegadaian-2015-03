@@ -6,33 +6,34 @@ import id.co.pegadaian.simulator.bpjs.rest.client.dto.Tagihan;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.Base64Utils;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 public class BpjsRestClient {
     private String server = "http://localhost:10000";
-    RestTemplate restClient = new RestTemplate();
+    private RestTemplate restClient;
     
-    private HttpHeaders createAuthenticationHeader(){
-        String userpass = "user:test123";
-        String base64encoded = Base64Utils.encodeToString(userpass.getBytes());
-        HttpHeaders header = new HttpHeaders();
-        header.add("Authorization", "Basic "+base64encoded);
-        return header;
+    public BpjsRestClient(){
+        BasicCredentialsProvider basicAuth = new BasicCredentialsProvider();
+        basicAuth.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("user", "test123"));
+        HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(basicAuth).build();
+        ClientHttpRequestFactory clientFactory = new HttpComponentsClientHttpRequestFactory(client);
+        restClient = new RestTemplate(clientFactory);
     }
-    
     
     public List<Tagihan> inquiry(String idpel) throws RestClientException {
         String url = "/inquiry/kesehatan/";
         
         // mengambil response berupa map
-        HttpEntity<String> request = new HttpEntity<>(createAuthenticationHeader());
-        ResponseEntity<Tagihan[]> hasil2 = restClient.exchange(server+url+idpel, HttpMethod.GET, request, Tagihan[].class);
+        ResponseEntity<Tagihan[]> hasil2 = restClient.getForEntity(server + url + idpel, Tagihan[].class);
         Tagihan[] data = hasil2.getBody();
         
         return Arrays.asList(data);
@@ -46,12 +47,8 @@ public class BpjsRestClient {
         
         String url = "/payment/kesehatan";
         
-        HttpEntity<PaymentRequest> request = new HttpEntity<>(payReq, createAuthenticationHeader());
-        URI lokasi = restClient.postForLocation(server + url, request);
-        
-        
-        HttpEntity<String> paymentResultRequest = new HttpEntity<>(createAuthenticationHeader());
-        ResponseEntity<PaymentResponse> resp = restClient.exchange(lokasi, HttpMethod.GET, paymentResultRequest, PaymentResponse.class);
-        return resp.getBody();
+        URI lokasi = restClient.postForLocation(server + url, payReq);
+        PaymentResponse resp = restClient.getForObject(lokasi, PaymentResponse.class);
+        return resp;
     }
 }
