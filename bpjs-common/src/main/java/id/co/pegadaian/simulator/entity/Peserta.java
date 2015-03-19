@@ -5,9 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity @Table(name = "peserta")
+@XmlType(namespace = "http://www.artivisi.com/bpjs", propOrder = {"id", "nomer", "nama"})
 public class Peserta {
     
     @Id @GeneratedValue(generator = "uuid")

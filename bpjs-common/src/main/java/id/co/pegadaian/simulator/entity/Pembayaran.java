@@ -10,10 +10,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlType;
 import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity @Table(name = "pembayaran")
+@XmlType(namespace = "http://www.artivisi.com/bpjs", propOrder = {"id", "waktuTransaksi", "userLoket", "kodeLoket", "tagihan"})
 public class Pembayaran {
     
     @Id @GeneratedValue(generator = "uuid")

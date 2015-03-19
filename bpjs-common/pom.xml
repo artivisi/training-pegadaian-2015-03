@@ -46,4 +46,35 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>schemagen</id>
+                        <goals>
+                            <goal>schemagen</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformSchemas>
+                        <transformSchema>
+                            <uri>http://www.artivisi.com/bpjs</uri>
+                            <toPrefix>bpjs</toPrefix>
+                            <toFile>bpjs.xsd</toFile>
+                        </transformSchema>
+                    </transformSchemas>
+                    <includes>
+                        <include>id/co/pegadaian/simulator/entity/*</include>
+                    </includes>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
