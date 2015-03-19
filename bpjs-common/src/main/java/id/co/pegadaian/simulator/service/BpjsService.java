@@ -58,4 +58,8 @@ public class BpjsService {
         return p;
 
     }
+
+    public Pembayaran cariPembayaranById(String id) {
+        return pembayaranDao.findOne(id);
+    }
 }
