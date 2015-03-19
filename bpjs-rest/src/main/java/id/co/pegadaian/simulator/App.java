@@ -1,23 +1,67 @@
 package id.co.pegadaian.simulator;
 
-import id.co.pegadaian.simulator.entity.Tagihan;
-import id.co.pegadaian.simulator.service.BpjsService;
-import java.util.List;
-import org.springframework.boot.SpringApplication;
+import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SpringBootApplication
 @EnableAutoConfiguration
-public class App {
-    public static void main( String[] args ) {
-        System.out.println( "Hello Spring Boot!" );
-        ApplicationContext springContainer = SpringApplication.run(App.class, args);
+@ComponentScan
+public class App extends WebMvcConfigurerAdapter {
+
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(App.class).run(args);
+    }
+
+    @EnableWebSecurity
+    @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+    protected static class KonfigurasiSpringSecurity extends WebSecurityConfigurerAdapter {
+
+        @Autowired
+        private DataSource dataSource;
+
+        private static final String SQL_LOGIN = "select username, password, true as enabled from s_user where username = ?";
+        private static final String SQL_PERMISSION = "select u.username, p.name as authority "
+                + "from s_user u  inner join s_user_permission up on u.id = up.id_user "
+                + "inner join s_permission p on p.id = up.id_permission "
+                + "where u.username = ?";
+
+        @Override
+        @Bean
+        public AuthenticationManager authenticationManagerBean() throws Exception {
+            return super.authenticationManagerBean();
+        }
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.csrf().disable()
+                .authorizeRequests()
+                    .antMatchers("/css/**").permitAll()
+                    .antMatchers("/inquiry/kesehatan/**").hasRole("BPJS_INQUIRY")
+                    .antMatchers("/payment/kesehatan/**").hasRole("BPJS_INQUIRY")
+                    .anyRequest().fullyAuthenticated()
+                    .and().httpBasic();
+        }
+
         
-        BpjsService service = springContainer.getBean(BpjsService.class);
-        List<Tagihan> data = service.cariTagihan("1234567890");
         
-        System.out.println("Jumlah Data : "+data.size());
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.jdbcAuthentication()
+                    .dataSource(dataSource)
+                    .usersByUsernameQuery(SQL_LOGIN)
+                    .authoritiesByUsernameQuery(SQL_PERMISSION);
+        }
+
     }
 }

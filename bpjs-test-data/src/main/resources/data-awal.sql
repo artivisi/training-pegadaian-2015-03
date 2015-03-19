@@ -13,8 +13,8 @@ insert into tagihan (id, id_peserta, tanggal_tagihan, tanggal_jatuh_tempo, nilai
 values ('t001', 'abc123', '2015-03-01', '2015-03-20', 100000, false);
 
 insert into s_permission (id, name) values 
-('p001', 'BPJS_INQUIRY'),
-('p002', 'BPJS_PAYMENT');
+('p001', 'ROLE_BPJS_INQUIRY'),
+('p002', 'ROLE_BPJS_PAYMENT');
 
 insert into s_user (id, username, password) values 
 ('u001', 'endy', '123'),

@@ -23,7 +23,7 @@ public class BpjsRestClient {
     
     public BpjsRestClient(){
         BasicCredentialsProvider basicAuth = new BasicCredentialsProvider();
-        basicAuth.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("user", "test123"));
+        basicAuth.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("lukman", "123"));
         HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(basicAuth).build();
         ClientHttpRequestFactory clientFactory = new HttpComponentsClientHttpRequestFactory(client);
         restClient = new RestTemplate(clientFactory);
