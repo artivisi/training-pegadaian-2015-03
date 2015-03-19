@@ -46,9 +46,8 @@ public class App extends WebMvcConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
             http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/css/**").permitAll()
                     .antMatchers("/inquiry/kesehatan/**").hasRole("BPJS_INQUIRY")
-                    .antMatchers("/payment/kesehatan/**").hasRole("BPJS_INQUIRY")
+                    .antMatchers("/payment/kesehatan/**").hasRole("BPJS_PAYMENT")
                     .anyRequest().fullyAuthenticated()
                     .and().httpBasic();
         }
