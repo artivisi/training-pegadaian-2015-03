@@ -28,3 +28,26 @@ create table pembayaran (
     UNIQUE KEY (id_tagihan),
     FOREIGN KEY (id_tagihan) REFERENCES tagihan(id)
 ) Engine=InnoDB ;
+
+create table s_permission (
+    id VARCHAR(36),
+    name VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (name)
+) Engine=InnoDB ;
+
+create table s_user (
+    id VARCHAR(36),
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (username)
+) Engine=InnoDB ;
+
+create table s_user_permission (
+    id_user VARCHAR(255) NOT NULL,
+    id_permission VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_user,id_permission),
+    FOREIGN KEY (id_user) REFERENCES s_user(id),
+    FOREIGN KEY (id_permission) REFERENCES s_permission(id)
+) Engine=InnoDB ;
