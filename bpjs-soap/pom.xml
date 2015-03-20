@@ -19,12 +19,12 @@
     
     <dependencies>
         <!--
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>bpjs-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
--->
+                <dependency>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>bpjs-common</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-ws</artifactId>
@@ -32,12 +32,6 @@
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.34</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
     

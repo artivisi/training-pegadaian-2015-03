@@ -1,8 +1,10 @@
 package id.co.pegadaian.simulator.bpjs.soap;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(namespace = "http://pegadaian.co.id/bpjs")
+@XmlType
+@XmlRootElement(namespace = BpjsConstants.NAMESPACE)
 public class InquiryResponse {
     private Tagihan tagihan;
 

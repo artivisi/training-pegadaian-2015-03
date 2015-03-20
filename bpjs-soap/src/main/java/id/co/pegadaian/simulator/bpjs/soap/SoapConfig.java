@@ -29,7 +29,7 @@ public class SoapConfig extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("BpjsPort");
         wsdl11Definition.setLocationUri("/soap");
-        wsdl11Definition.setTargetNamespace("http://pegadaian.co.id/bpjs");
+        wsdl11Definition.setTargetNamespace(BpjsConstants.NAMESPACE);
         wsdl11Definition.setSchema(bpjsSchema);
         return wsdl11Definition;
     }
