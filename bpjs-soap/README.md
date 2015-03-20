@@ -32,4 +32,8 @@ Create XML Message berikut
 </SOAP-ENV:Envelope>
 ```
 
-Kirim dengan HTTP Post ke http://localhost:8080/soap
+Kirim dengan HTTP Post ke http://localhost:8080/soap, misalnya dengan curl
+
+```
+curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/soap
+```
