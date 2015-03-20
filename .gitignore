@@ -1,1 +1,5 @@
 target
+
+#Netbeans Ignore
+catalog.xml
+nb-configuration.xml
