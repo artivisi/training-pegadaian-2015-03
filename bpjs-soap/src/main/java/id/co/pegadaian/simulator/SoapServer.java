@@ -1,4 +1,4 @@
-package id.co.pegadaian.simulator.bpjs.soap;
+package id.co.pegadaian.simulator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,5 +1,6 @@
 package id.co.pegadaian.simulator.bpjs.soap;
 
+import id.co.pegadaian.simulator.entity.Tagihan;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlType;
 

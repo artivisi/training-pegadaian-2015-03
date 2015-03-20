@@ -46,10 +46,20 @@ Response yang dihasilkan seperti ini
   <SOAP-ENV:Header/>
   <SOAP-ENV:Body>
     <ns3:inquiryResponse xmlns:ns3="http://pegadaian.co.id/bpjs">
-      <tagihan>
-        <nilai>100000</nilai>
-        <lunas>false</lunas>
-      </tagihan>
+      <daftarTagihan>
+        <tagihan>
+          <id>t001</id>
+          <lunas>true</lunas>
+          <nilai>100000.00</nilai>
+          <peserta>
+            <id>abc123</id>
+            <nama>Endy Muhardin</nama>
+            <nomer>1234567890</nomer>
+          </peserta>
+          <tanggalJatuhTempo>2015-03-20T00:00:00+07:00</tanggalJatuhTempo>
+          <tanggalTagihan>2015-03-01T00:00:00+07:00</tanggalTagihan>
+        </tagihan>
+      </daftarTagihan>
     </ns3:inquiryResponse>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
