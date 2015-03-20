@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://pegadaian.co.id/bpjs" xmlns:tns="http://pegadaian.co.id/bpjs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:complexType name="paymentResponse">
-        <xs:sequence>
-            <xs:element name="id" type="xs:string" minOccurs="0"/>
-            <xs:element name="kodeLoket" type="xs:string" minOccurs="0"/>
-            <xs:element name="tagihan" type="tns:tagihan" minOccurs="0"/>
-            <xs:element name="userLoket" type="xs:string" minOccurs="0"/>
-            <xs:element name="waktuTransaksi" type="xs:dateTime" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
-
     <xs:complexType name="tagihan">
         <xs:sequence>
             <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -29,30 +19,47 @@
             <xs:element name="nama" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:complexType name="paymentRequest">
-        <xs:sequence>
-            <xs:element name="idTagihan" type="xs:string" minOccurs="0"/>
-            <xs:element name="kodeLoket" type="xs:string" minOccurs="0"/>
-            <xs:element name="userLoket" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="inquiryRequest">
-        <xs:sequence>
+    
+    <xs:element name="inquiryRequest">
+        <xs:complexType>
             <xs:element name="idPelanggan" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
+        </xs:complexType>
+    </xs:element>
 
-    <xs:complexType name="inquiryResponse">
-        <xs:sequence>
-            <xs:element name="daftarTagihan" minOccurs="0">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="tagihan" type="tagihan" minOccurs="0" maxOccurs="unbounded"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:element name="inquiryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="daftarTagihan" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="tagihan" type="tns:tagihan" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="paymentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idTagihan" type="xs:string" minOccurs="0"/>
+                <xs:element name="kodeLoket" type="xs:string" minOccurs="0"/>
+                <xs:element name="userLoket" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="paymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="0"/>
+                <xs:element name="kodeLoket" type="xs:string" minOccurs="0"/>
+                <xs:element name="tagihan" type="tns:tagihan" minOccurs="0"/>
+                <xs:element name="userLoket" type="xs:string" minOccurs="0"/>
+                <xs:element name="waktuTransaksi" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>
