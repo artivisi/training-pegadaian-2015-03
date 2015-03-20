@@ -26,7 +26,7 @@ Create XML Message berikut
   <SOAP-ENV:Header/>
   <SOAP-ENV:Body>
     <bpjs:inquiryRequest xmlns:bpjs="http://pegadaian.co.id/bpjs">
-        <bpjs:idPelanggan>1234567890</bpjs:idPelanggan>
+        <idPelanggan>1234567890</idPelanggan>
     </bpjs:inquiryRequest>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
