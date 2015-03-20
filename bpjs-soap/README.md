@@ -37,3 +37,20 @@ Kirim dengan HTTP Post ke http://localhost:8080/soap, misalnya dengan curl
 ```
 curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/soap
 ```
+
+Response yang dihasilkan seperti ini
+
+```xml
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns3:inquiryResponse xmlns:ns3="http://pegadaian.co.id/bpjs">
+      <tagihan>
+        <nilai>100000</nilai>
+        <lunas>false</lunas>
+      </tagihan>
+    </ns3:inquiryResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
