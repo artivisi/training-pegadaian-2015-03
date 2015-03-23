@@ -1,0 +1,16 @@
+<server class="org.jpos.q2.iso.QServer" logger="Q2" name="Server-B">
+    <attr name="port" type="java.lang.Integer">12345</attr>
+    <attr name="maxSessions" type="java.lang.Integer">100</attr>	
+    <attr name="minSessions" type="java.lang.Integer">10</attr>
+
+    <channel name="BpjsChannel" class="org.jpos.iso.channel.ASCIIChannel" logger="Q2"
+             packager="org.jpos.iso.packager.ISO87APackager">
+    </channel>
+
+    <request-listener class="id.co.pegadaian.simulator.jpos.listener.BpjsListener" logger="Q2">
+        <property name="space" value="transient:default" />
+        <property name="queue" value="TransactionQueue" />
+        <property name="timeout" value="10000" />
+    </request-listener>
+	
+</server>
