@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="Q2.system" at="Mon Mar 23 11:01:15.130 WIB 2015" lifespan="592ms">
+  <info>
+    Q2 started, deployDir=/home/endy/belajar/bpjs-iso8583-server/deploy
+    
+    jPOS 2.0.0 master/be6e219 (2015-02-25 22:04:06 UYST) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:01:15.145 WIB 2015" lifespan="8ms">
+  <info>
+    deploy: /home/endy/belajar/bpjs-iso8583-server/deploy/10_bpjs_channel.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:01:15.155 WIB 2015" lifespan="7ms">
+  <info>
+    deploy: /home/endy/belajar/bpjs-iso8583-server/deploy/99_sysmon.xml
+  </info>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Mon Mar 23 11:01:20.017 WIB 2015">
+  <info>
+    Starting SystemMonitor
+  </info>
+</log>
+<log realm="Server-B.server" at="Mon Mar 23 11:01:20.023 WIB 2015">
+  <iso-server>
+    listening on port 12345
+  </iso-server>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Mon Mar 23 11:01:20.026 WIB 2015">
+  <info>
+               OS: Linux
+             host: breadwinner/127.0.1.1
+          version: 2.0.0 (be6e219)
+         instance: 85a0992b-2b51-40c3-a1f3-05f03ce1b6e1
+           uptime: 00:00:05.829
+       processors: 4
+           drift : 0
+    memory(t/u/f): 268/42/225
+          threads: 18
+            Thread[Reference Handler,10,system]
+            Thread[Finalizer,8,system]
+            Thread[Signal Dispatcher,9,system]
+            Thread[Q2-85a0992b-2b51-40c3-a1f3-05f03ce1b6e1,5,main]
+            Thread[DestroyJavaVM,5,main]
+            Thread[pool-1-thread-1,5,main]
+            Thread[Timer-0,5,main]
+            Thread[Tomcat JDBC Pool Cleaner[205029188:1427083277343],5,main]
+            Thread[Abandoned connection cleanup thread,5,main]
+            Thread[Thread-5,5,main]
+            Thread[SystemMonitor,5,main]
+            Thread[PooledThread-0,5,ThreadPool-0-1]
+            Thread[PooledThread-1,5,ThreadPool-0-1]
+            Thread[PooledThread-2,5,ThreadPool-0-1]
+            Thread[PooledThread-3,5,ThreadPool-0-1]
+            Thread[PooledThread-4,5,ThreadPool-0-1]
+            Thread[PooledThread-5,5,ThreadPool-0-1]
+            Thread[PooledThread-6,5,ThreadPool-0-1]
+            Thread[PooledThread-7,5,ThreadPool-0-1]
+            Thread[PooledThread-8,5,ThreadPool-0-1]
+            Thread[PooledThread-9,5,ThreadPool-0-1]
+         encoding: UTF-8
+    name-registrar:
+      tspace:default: org.jpos.space.TSpace
+        <keycount>-1</keycount>
+        <gcinfo>0,0</gcinfo>
+
+      logger.Q2: org.jpos.util.Logger
+      Server-B: org.jpos.q2.iso.QServer
+      server.Server-B: org.jpos.iso.ISOServer
+        connected=0, rx=0, tx=0, last=0
+      logger.Q2.buffered: org.jpos.util.BufferedLogListener
+  </info>
+</log>
+<log realm="Server-B.server.session/127.0.0.1:56275" at="Mon Mar 23 11:01:39.002 WIB 2015">
+  <session-start/>
+</log>
+<log realm="channel/127.0.0.1:56275" at="Mon Mar 23 11:01:39.667 WIB 2015" lifespan="662ms">
+  <receive>
+    <isomsg direction="incoming">
+      <!-- org.jpos.iso.packager.ISO87APackager -->
+      <field id="0" value="0800"/>
+      <field id="7" value="0323110138"/>
+    </isomsg>
+  </receive>
+</log>
+<log realm="channel/127.0.0.1:56275" at="Mon Mar 23 11:01:40.015 WIB 2015" lifespan="3ms">
+  <send>
+    <isomsg direction="outgoing">
+      <!-- org.jpos.iso.packager.ISO87APackager -->
+      <field id="0" value="0810"/>
+      <field id="7" value="0323110138"/>
+      <field id="39" value="00"/>
+    </isomsg>
+  </send>
+</log>
+<log realm="channel/127.0.0.1:56275" at="Mon Mar 23 11:01:40.030 WIB 2015" lifespan="11ms">
+  <receive>
+    <peer-disconnect/>
+  </receive>
+</log>
+<log realm="Server-B.server.session/127.0.0.1:56275" at="Mon Mar 23 11:01:40.033 WIB 2015">
+  <session-end/>
+</log>
+<log realm="Server-B.server.session/127.0.0.1:56276" at="Mon Mar 23 11:01:48.722 WIB 2015">
+  <session-start/>
+</log>
+<log realm="channel/127.0.0.1:56276" at="Mon Mar 23 11:01:49.393 WIB 2015" lifespan="670ms">
+  <receive>
+    <isomsg direction="incoming">
+      <!-- org.jpos.iso.packager.ISO87APackager -->
+      <field id="0" value="0800"/>
+      <field id="7" value="0323110148"/>
+    </isomsg>
+  </receive>
+</log>
+<log realm="channel/127.0.0.1:56276" at="Mon Mar 23 11:01:49.404 WIB 2015">
+  <send>
+    <isomsg direction="outgoing">
+      <!-- org.jpos.iso.packager.ISO87APackager -->
+      <field id="0" value="0810"/>
+      <field id="7" value="0323110148"/>
+      <field id="39" value="00"/>
+    </isomsg>
+  </send>
+</log>
+<log realm="channel/127.0.0.1:56276" at="Mon Mar 23 11:01:49.417 WIB 2015" lifespan="10ms">
+  <receive>
+    <peer-disconnect/>
+  </receive>
+</log>
+<log realm="Server-B.server.session/127.0.0.1:56276" at="Mon Mar 23 11:01:49.418 WIB 2015">
+  <session-end/>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:04.562 WIB 2015">
+  <info>
+    shutting down (hook)
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:05.038 WIB 2015">
+  <trace>
+    undeploying:/home/endy/belajar/bpjs-iso8583-server/deploy/99_sysmon.xml
+  </trace>
+</log>
+<log realm="org.jpos.q2.qbean.SystemMonitor" at="Mon Mar 23 11:02:05.042 WIB 2015">
+  <info>
+    Stopping SystemMonitor
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:05.048 WIB 2015">
+  <info>
+    undeployed:/home/endy/belajar/bpjs-iso8583-server/deploy/99_sysmon.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:05.052 WIB 2015">
+  <trace>
+    undeploying:/home/endy/belajar/bpjs-iso8583-server/deploy/10_bpjs_channel.xml
+  </trace>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:05.059 WIB 2015" lifespan="1ms">
+  <info>
+    undeployed:/home/endy/belajar/bpjs-iso8583-server/deploy/10_bpjs_channel.xml
+  </info>
+</log>
+<log realm="Q2.system" at="Mon Mar 23 11:02:05.061 WIB 2015">
+  <trace>
+    undeploying:/home/endy/belajar/bpjs-iso8583-server/deploy/00_logger.xml
+  </trace>
+</log>
+</logger>
