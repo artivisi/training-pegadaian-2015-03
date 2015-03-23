@@ -1,0 +1,4 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="bpjsmux">
+    <in>mux-input</in>
+    <out>mux-output</out>
+</mux>

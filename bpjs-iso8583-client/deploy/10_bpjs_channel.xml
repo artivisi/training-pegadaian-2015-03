@@ -1,0 +1,11 @@
+<channel-adaptor name="channeladaptor" class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+
+    <channel name="BpjsChannel" class="org.jpos.iso.channel.ASCIIChannel" logger="Q2"
+         packager="org.jpos.iso.packager.ISO87APackager">
+        <property name="host" value="localhost" />
+        <property name="port" value="12345" />
+    </channel>
+    <in>mux-output</in>
+    <out>mux-input</out>
+
+</channel-adaptor>
