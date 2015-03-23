@@ -1,5 +1,9 @@
 target
 
-#Netbeans Ignore
+# Netbeans Ignore
 catalog.xml
 nb-configuration.xml
+
+# JPos Ignore
+build
+gradle
