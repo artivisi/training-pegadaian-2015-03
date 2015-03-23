@@ -14,7 +14,6 @@ public class App {
         SimpleDateFormat formatterWaktu = new SimpleDateFormat("MMddHHmmss");
         
         echoTest(formatterWaktu, channel);
-        
         inquiryTest(formatterWaktu, channel);
     }
 
