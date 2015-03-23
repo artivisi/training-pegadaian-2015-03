@@ -7,3 +7,4 @@ nb-configuration.xml
 # JPos Ignore
 build
 gradle
+.gradle
