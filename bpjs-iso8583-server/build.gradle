@@ -9,7 +9,12 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-    mavenCentral()
+    jcenter {
+        url "http://jcenter.bintray.com/"
+    }
+    maven  {
+        url "http://repo1.maven.org/maven2"
+    }
     maven {url 'http://download.oracle.com/maven'}
     maven {url 'http://jline.sourceforge.net/m2repo'}
     maven {url 'http://jpos.org/maven' }
