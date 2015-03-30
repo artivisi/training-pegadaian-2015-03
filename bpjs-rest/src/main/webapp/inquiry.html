@@ -14,7 +14,7 @@
         <!-- CSS Kita Sendiri -->
         <link rel="stylesheet" href="css/aplikasi.css">
     </head>
-    <body>
+    <body ng-app="aplikasiPaymentPoint">
 
         <!-- Fixed navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -49,17 +49,28 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container" ng-controller="InquiryController">
 
             <h1>Inquiry Tagihan</h1>
-            
+
             <form class="form-inline">
                 <div class="form-group">
+                    <label for="jenis">Jenis Produk</label>
+                    <select class="form-control">
+                        <option>Pilih Jenis Produk</option>
+                        <option ng-repeat="j in daftarJenisProduk" value="{{j.id}}">{{j.nama}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="idpel">ID Pelanggan</label>
-                    <input type="text" class="form-control" id="idpel" placeholder="ID Pelanggan 10 Angka">
+                    <input type="text" class="form-control" id="idpel" ng-model="idpel" placeholder="ID Pelanggan 10 Angka">
                 </div>
                 <button type="submit" class="btn btn-submit">Cek Tagihan</button>
             </form>
+
+            <h1>Data Tagihan</h1>
+
+            <h2>ID Pelanggan : {{idpel}}</h2>
 
         </div> <!-- /container -->
 
@@ -67,5 +78,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/aplikasi.js"></script>
     </body>
 </html>
