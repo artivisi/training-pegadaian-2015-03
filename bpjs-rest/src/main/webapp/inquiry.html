@@ -68,13 +68,42 @@
                         <input type="text" class="form-control" id="idpel" ng-model="idpel" placeholder="ID Pelanggan 10 Angka">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-submit">Cek Tagihan</button>
+                <button type="submit" class="btn btn-submit" ng-click="tombolCekDiklik()">Cek Tagihan</button>
             </form>
 
             <h1>Data Tagihan</h1>
 
             <h2>ID Pelanggan : {{idpel}}</h2>
             <h2>Jenis Produk : {{jenis}}</h2>
+
+            <div ng-show="daftarTagihan.length < 1">
+                Tidak ada data tagihan
+            </div>
+            <div ng-show="daftarTagihan.length > 0">
+                <h3>Jumlah Tagihan : {{daftarTagihan.length}}</h3>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>IDPEL</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Bulan Tagihan</th>
+                            <th>Jatuh Tempo</th>
+                            <th>Nilai</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in daftarTagihan">
+                            <td>{{t.peserta.nomer}}</td>
+                            <td>{{t.peserta.nama}}</td>
+                            <td>{{t.tanggalTagihan}}</td>
+                            <td>{{t.tanggalJatuhTempo}}</td>
+                            <td>{{t.nilai}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
 
         </div> <!-- /container -->
 
