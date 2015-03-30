@@ -8,3 +8,4 @@ nb-configuration.xml
 build
 gradle
 .gradle
+log
