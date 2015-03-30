@@ -57,9 +57,8 @@
                 <div class="form-group">
                     <label for="jenis" class="col-sm-2 control-label">Jenis Produk</label>
                     <div class="col-sm-10">
-                        <select class="form-control" ng-model="jenis" id="jenis">
-                            <option>Pilih Jenis Produk</option>
-                            <option ng-repeat="j in daftarJenisProduk" value="{{j.id}}">{{j.nama}}</option>
+                        <select class="form-control" ng-model="jenis" id="jenis" ng-options="j.nama for j in daftarJenisProduk">
+                            <option value="">Pilih Jenis Produk</option>
                         </select>
                     </div>
                 </div>
