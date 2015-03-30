@@ -56,7 +56,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="jenis">Jenis Produk</label>
-                    <select class="form-control">
+                    <select class="form-control" ng-model="jenis" id="jenis">
                         <option>Pilih Jenis Produk</option>
                         <option ng-repeat="j in daftarJenisProduk" value="{{j.id}}">{{j.nama}}</option>
                     </select>
@@ -71,6 +71,7 @@
             <h1>Data Tagihan</h1>
 
             <h2>ID Pelanggan : {{idpel}}</h2>
+            <h2>Jenis Produk : {{jenis}}</h2>
 
         </div> <!-- /container -->
 
