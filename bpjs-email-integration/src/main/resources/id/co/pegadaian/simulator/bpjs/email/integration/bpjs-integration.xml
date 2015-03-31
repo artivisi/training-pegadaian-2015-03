@@ -2,9 +2,14 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-                http://www.springframework.org/schema/integration/mail http://www.springframework.org/schema/integration/mail/spring-integration-mail.xsd"
+                http://www.springframework.org/schema/integration/mail http://www.springframework.org/schema/integration/mail/spring-integration-mail.xsd
+                http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+                http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd"
              xmlns:beans="http://www.springframework.org/schema/beans"
-             xmlns:int-mail="http://www.springframework.org/schema/integration/mail">
+             xmlns:int-mail="http://www.springframework.org/schema/integration/mail"
+             xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+             xmlns:int-file="http://www.springframework.org/schema/integration/file"
+>
  
     <int-mail:imap-idle-channel-adapter id="gmail"
                                         store-uri="imaps://${email.username}:${email.password}@${email.host}:${email.port}/inbox"
@@ -17,6 +22,15 @@
     />
 
     <channel id="incomingMail" datatype="javax.mail.Message"/>
- 
+    <channel id="tagihanString"/>
+    
+    <int-file:outbound-channel-adapter id="filesOut"
+                                       directory="${import.directory}"
+                                       channel="tagihanString"
+                                       auto-create-directory="true"
+                                       delete-source-files="true"/>
+    <!--
     <service-activator input-channel="incomingMail" ref="bpjsTagihanEmailHandler" method="importTagihan"/>
+    <int-stream:stdout-channel-adapter channel="tagihanString" append-newline="true"/>
+    -->
 </beans:beans>
